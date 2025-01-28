@@ -29,11 +29,19 @@
 
 ## SaaS / PaaS
 - [Bland AI](https://www.bland.ai/)
+- [Crew AI](https://www.crewai.com/)
+- [EasyBee AI](https://easybee.ai/)
+- [Voice Flow](https://www.voiceflow.com/)
+- [Vector Shift AI](https://vectorshift.ai/)
+- [Gamma](https://gamma.app/)
+- [Tome](https://tome.app/)
 
 ## Libraries
 - [MarkItDown (Microsoft)](https://github.com/microsoft/markitdown)
 - [Unstructured IO](https://unstructured.io/)
 - [NVIDIA AI](https://www.nvidia.com/en-us/ai/)
+- [RepoMix](https://repomix.com/)
+- [Swarm](https://github.com/openai/swarm)
 
 ## Productivity Tools
 - [Raycast](https://www.raycast.com/)
