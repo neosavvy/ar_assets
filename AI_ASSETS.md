@@ -362,4 +362,22 @@
 [ ] [RDKit](https://www.rdkit.org/)
 [ ] [Biopython](https://biopython.org/)
 [ ] [RAPIDS](https://rapids.ai/)
-[ ] [Modin](https://modin.readthedocs.io/) 
+[ ] [Modin](https://modin.readthedocs.io/)
+
+## 🛠️ Development Tools & Libraries
+[ ] [MarkItDown (Microsoft)](https://github.com/microsoft/markitdown) - Documentation automation
+[ ] [RepoMix](https://repomix.com/) - Code repository analysis and management
+
+## 🤖 AI Agents & Automation
+[ ] [Dust](https://dust.tt/home) - Custom AI assistant builder
+[ ] [EasyBee AI](https://easybee.ai/) - Automation assistant
+
+## 💼 Enterprise Solutions
+[ ] [Vector Shift AI](https://vectorshift.ai/) - Enterprise AI solutions
+[ ] [Invest.ai](https://invest.ai/) - Financial AI platform
+
+## 🔍 Research & Knowledge Management
+[ ] [Khoj AI](https://github.com/khoj-ai/khoj) - Personal knowledge management
+
+## 🗣️ Voice & Communication
+[ ] [Bland AI](https://www.bland.ai/) - AI call management and voice synthesis 
