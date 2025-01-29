@@ -81,6 +81,7 @@
 - [ ] [Deepnote](https://deepnote.com/)
 - [ ] [Observable](https://observablehq.com/)
 - [ ] [Hex](https://hex.tech/)
+- [ ] [Gathr.ai](https://gathr.ai/) - Data integration and analytics platform
 
 ## 🎨 Design & Creative Tools
 - [ ] [Midjourney](https://www.midjourney.com/)
