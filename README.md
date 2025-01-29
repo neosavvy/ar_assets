@@ -14,11 +14,6 @@
 - [x] [Groq](https://groq.com/)
 - [x] [Inflection AI](https://inflection.ai/)
 - [x] [Nvidia NeMo](https://www.nvidia.com/en-us/ai-data-science/generative-ai/)
-- [ ] [Perplexity AI](https://www.perplexity.ai/)
-- [ ] [Together AI](https://www.together.ai/)
-- [ ] [Groq](https://groq.com/)
-- [ ] [Inflection AI](https://inflection.ai/)
-- [ ] [Nvidia NeMo](https://www.nvidia.com/en-us/ai-data-science/generative-ai/)
 
 ## 💻 Development Tools & IDEs
 - [ ] [GitHub Copilot](https://github.com/features/copilot)
