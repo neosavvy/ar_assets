@@ -1,26 +1,64 @@
-# Foundation Models & LLMs Comparison Matrix
+# Foundation Model Comparison
 
-## Quick Reference Matrix
+## Basic Features
 
-| Model | Architecture | Parameters | Context Window | Training Tokens | License | Hosting Options |
-|-------|-------------|------------|----------------|-----------------|---------|-----------------|
-| GPT-4 | Transformer | Unknown | 128K | Unknown | Proprietary | API-only |
-| Claude 2.1 | Constitutional AI | Unknown | 200K | Unknown | Proprietary | API-only |
-| Gemini Pro | Mixture of Experts | Unknown | 32K | Unknown | Proprietary | API-only |
-| Llama 2 | Transformer | 7B-70B | 4K | 2T | Apache 2.0 | Self-host/API |
-| Mistral | Mixture of Experts | 7B | 8K-32K | Unknown | Apache 2.0 | Self-host/API |
-| DeepSeek | Transformer | 7B-67B | 4K-32K | 2T | Apache 2.0 | Self-host/API |
+| Model | Developer | Parameters | Context Window | Open Source | Fine-tuning |
+|-------|-----------|------------|----------------|-------------|-------------|
+| GPT-4 | OpenAI | Not disclosed | 128K | No | Limited |
+| Claude 3 | Anthropic | Not disclosed | 200K | No | No |
+| Gemini | Google | Not disclosed | 128K | No | Limited |
+| Llama 2 | Meta | 7B-70B | 4K-32K | Yes | Yes |
+| Mistral | Mistral AI | 7B | 32K | Yes | Yes |
+| DeepSeek | DeepSeek | 7B-67B | 32K | Yes | Yes |
+| Yi | 01.AI | 6B-34B | 4K-32K | Yes | Yes |
+| Cohere | Cohere | Not disclosed | 128K | No | Yes |
+| NeMo-2 | NVIDIA | 175B | 128K | No | Yes |
+| Inflection-2 | Inflection | Not disclosed | 32K | No | No |
 
-## Cost Structure (as of March 2024)
+## Cost Structure (per 1K tokens)
 
-| Model | Input Cost (per 1K tokens) | Output Cost (per 1K tokens) | Free Tier |
-|-------|---------------------------|----------------------------|------------|
+| Model | Input Cost | Output Cost | Free Tier |
+|-------|------------|-------------|------------|
 | GPT-4 | $0.03 | $0.06 | No |
-| GPT-3.5 | $0.0005 | $0.0015 | Yes |
-| Claude 2.1 | $0.008 | $0.024 | Yes |
-| Gemini Pro | $0.00025 | $0.0005 | Yes |
-| Mistral Large | $0.007 | $0.021 | No |
-| Claude 3 Opus | $0.015 | $0.075 | No |
+| Claude 3 | $0.015 | $0.075 | No |
+| Gemini Pro | $0.001 | $0.002 | Yes |
+| Llama 2 | Self-hosted | Self-hosted | N/A |
+| Mistral Large | $0.007 | $0.024 | No |
+| DeepSeek | Self-hosted | Self-hosted | N/A |
+| Yi | Self-hosted | Self-hosted | N/A |
+| Cohere Command | $0.0015-0.015 | $0.0015-0.03 | Yes |
+| Groq (Mixtral) | $0.0007 | $0.0007 | No |
+| Together AI | $0.0003-0.0007 | $0.0003-0.0007 | Yes |
+
+## Deployment Options
+
+| Model | API | Self-hosted | Cloud | Enterprise |
+|-------|-----|-------------|--------|------------|
+| GPT-4 | ✅ | ❌ | Azure | ✅ |
+| Claude 3 | ✅ | ❌ | AWS | ✅ |
+| Gemini | ✅ | ❌ | GCP | ✅ |
+| Llama 2 | ✅ | ✅ | Multiple | ✅ |
+| Mistral | ✅ | ✅ | Multiple | ✅ |
+| DeepSeek | ✅ | ✅ | Multiple | ✅ |
+| Yi | ✅ | ✅ | Multiple | ✅ |
+| Cohere | ✅ | ❌ | Multiple | ✅ |
+| NeMo-2 | ❌ | ✅ | NGC | ✅ |
+| Inflection-2 | Limited | ❌ | Custom | ✅ |
+
+## Special Features
+
+| Model | Multimodal | Code Generation | RAG Support | Custom Training |
+|-------|------------|-----------------|-------------|-----------------|
+| GPT-4 | ✅ | ✅ | ✅ | Limited |
+| Claude 3 | ✅ | ✅ | ✅ | ❌ |
+| Gemini | ✅ | ✅ | ✅ | Limited |
+| Llama 2 | ❌ | ✅ | ✅ | ✅ |
+| Mistral | ❌ | ✅ | ✅ | ✅ |
+| DeepSeek | ❌ | ✅ | ✅ | ✅ |
+| Yi | ❌ | ✅ | ✅ | ✅ |
+| Cohere | ❌ | ✅ | ✅ | ✅ |
+| NeMo-2 | ✅ | ✅ | ✅ | ✅ |
+| Inflection-2 | ❌ | Limited | ✅ | ❌ |
 
 ## Performance Comparison
 
@@ -29,7 +67,7 @@
 | Model | Reasoning | Math | Coding | Creative | Instruction Following |
 |-------|-----------|------|---------|----------|---------------------|
 | GPT-4 | 5 | 4.5 | 5 | 4.5 | 5 |
-| Claude 2.1 | 4.5 | 4 | 4.5 | 4 | 4.5 |
+| Claude 3 | 4.5 | 4 | 4.5 | 4 | 4.5 |
 | Gemini Pro | 4 | 4 | 4 | 4 | 4 |
 | Llama 2 70B | 4 | 3.5 | 4 | 3.5 | 4 |
 | Mistral Large | 4.5 | 4 | 4.5 | 4 | 4.5 |
@@ -40,45 +78,28 @@
 | Model | MMLU | BBH | HumanEval | GSM8K | TruthfulQA |
 |-------|------|-----|-----------|--------|------------|
 | GPT-4 | 86.4% | 86.8% | 67% | 92% | 81% |
-| Claude 2.1 | 81.9% | 78.5% | 71% | 88% | 89% |
+| Claude 3 | 81.9% | 78.5% | 71% | 88% | 89% |
 | Gemini Pro | 79.8% | 75.3% | 63% | 85% | 76% |
 | Llama 2 70B | 75.3% | 70.2% | 55% | 75% | 65% |
 | Mistral Large | 82.6% | 80.1% | 73% | 84% | 82% |
 | DeepSeek | 77.5% | 72.4% | 67% | 78% | 71% |
 
-## Deployment Options
-
-### Cloud API
-- **OpenAI**: GPT-4, GPT-3.5
-- **Anthropic**: Claude 2.1, Claude 3
-- **Google**: Gemini Pro, Gemini Ultra
-- **Mistral**: Mistral Large, Medium, Small
-- **Together AI**: Multiple models
-- **Anyscale**: Multiple models
-
-### Self-Hosted
-- **Llama 2**: Full range
-- **Mistral**: Open models
-- **DeepSeek**: Open models
-- **Yi**: Open models
-- **Phi-2**: Research models
-
 ## Use Case Recommendations
 
 ### Enterprise & Production
 - **Best Overall**: GPT-4
-- **Best Value**: Claude 2.1
+- **Best Value**: Claude 3
 - **Best Self-hosted**: Llama 2 70B
-- **Most Secure**: Claude 2.1
+- **Most Secure**: Claude 3
 
 ### Development & Testing
-- **Best Overall**: GPT-3.5
-- **Best Value**: Gemini Pro
-- **Best Self-hosted**: Mistral 7B
+- **Best Overall**: Gemini Pro
+- **Best Value**: Llama 2
+- **Best Self-hosted**: Mistral Large
 - **Most Flexible**: Llama 2
 
 ### Research & Academia
-- **Best Overall**: Claude 2.1
+- **Best Overall**: Claude 3
 - **Best Value**: Llama 2
 - **Best Documentation**: GPT-4
 - **Most Open**: Mistral
@@ -91,7 +112,7 @@
 - Production reliability
 - Extensive API ecosystem
 
-### Choose Claude if you need:
+### Choose Claude 3 if you need:
 - Long context processing
 - High truthfulness
 - Constitutional AI guarantees

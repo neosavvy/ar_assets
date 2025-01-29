@@ -1,34 +1,103 @@
 # Foundation Models Performance Analysis
 
-## Benchmark Overview
+## Benchmark Results 2024
 
-Performance metrics measured across standard benchmarks and real-world applications. All metrics as of March 2024.
+### Standard Benchmarks
 
-### Standard Benchmarks Comparison
+| Model | MMLU | BBH | HumanEval | GSM8K | TruthfulQA |
+|-------|------|-----|-----------|--------|------------|
+| GPT-4 | 86.4% | 86.8% | 67.0% | 92.0% | 81.0% |
+| Claude 3 Opus | 90.2% | 87.3% | 71.0% | 88.0% | 89.0% |
+| Gemini Ultra | 87.1% | 83.6% | 74.3% | 94.4% | 85.6% |
+| Mistral Large | 82.6% | 80.1% | 73.0% | 84.0% | 82.0% |
+| Llama 2 70B | 75.3% | 70.2% | 55.0% | 75.0% | 65.0% |
+| DeepSeek 67B | 77.5% | 72.4% | 67.0% | 78.0% | 71.0% |
+| Yi-34B | 78.2% | 70.1% | 52.4% | 72.3% | 62.8% |
+| Cohere Command | 76.0% | 71.5% | 54.0% | 71.0% | 68.0% |
+| NeMo-2 | 88.2% | 85.3% | 67.8% | 91.2% | 79.5% |
+| Inflection-2 | 86.4% | 83.6% | 67.0% | 86.8% | 77.2% |
 
-| Model | MMLU | BBH | HumanEval | GSM8K | TruthfulQA | Context Window |
-|-------|------|-----|-----------|--------|------------|----------------|
-| GPT-4 | 86.4% | 86.8% | 67% | 92% | 81% | 128K |
-| Claude 3 Opus | 89.7% | 87.3% | 71% | 94.2% | 89% | 200K |
-| Gemini Ultra | 90.0% | 83.6% | 74.4% | 94.4% | 85% | 32K |
-| Mistral Large | 82.6% | 80.1% | 73% | 84% | 82% | 32K |
-| Llama 2 70B | 75.3% | 70.2% | 55% | 75% | 65% | 4K |
-| DeepSeek 67B | 77.5% | 72.4% | 67% | 78% | 71% | 32K |
+### Latency & Performance
 
-## Latency Analysis
+| Model | Avg Response Time | Tokens/Second | Cold Start |
+|-------|------------------|---------------|------------|
+| GPT-4 | 2-5s | 60 | Medium |
+| Claude 3 | 1-3s | 100 | Low |
+| Gemini Ultra | 2-4s | 80 | Medium |
+| Mistral Large | 1-2s | 150 | Low |
+| Llama 2 70B | Varies | Varies | Varies |
+| DeepSeek | Varies | Varies | Varies |
+| Yi | Varies | Varies | Varies |
+| Cohere | 1-2s | 120 | Low |
+| Groq (Mixtral) | 0.5-1s | 500 | Very Low |
+| NeMo-2 | Varies | Varies | Varies |
 
-### Response Time (p95)
+### Context Window Performance
 
-| Model | First Token | Tokens/Second | Cold Start | Streaming |
-|-------|-------------|---------------|------------|-----------|
-| GPT-4 | 2-3s | 60 | 5s | Yes |
-| Claude 3 | 2-4s | 70 | 6s | Yes |
-| Gemini Ultra | 1-2s | 80 | 4s | Yes |
-| Mistral Large | 1-2s | 90 | 3s | Yes |
-| Llama 2 70B* | 0.5-1s | 100 | 2s | Yes |
-| DeepSeek 67B* | 0.5-1s | 100 | 2s | Yes |
+| Model | Max Context | Effective Use | Memory Degradation |
+|-------|-------------|---------------|-------------------|
+| GPT-4 | 128K | High | Low |
+| Claude 3 | 200K | Very High | Very Low |
+| Gemini Ultra | 128K | High | Low |
+| Mistral Large | 32K | High | Low |
+| Llama 2 70B | 4K-32K | Medium | Medium |
+| DeepSeek | 32K | Medium | Medium |
+| Yi | 4K-32K | Medium | Medium |
+| Cohere | 128K | High | Low |
+| NeMo-2 | 128K | High | Low |
+| Inflection-2 | 32K | High | Low |
 
-*Self-hosted performance on recommended hardware
+## Specialized Capabilities
+
+### Code Generation
+
+| Model | Completion | Documentation | Debug | Test Generation |
+|-------|------------|---------------|--------|-----------------|
+| GPT-4 | 5/5 | 5/5 | 5/5 | 5/5 |
+| Claude 3 | 5/5 | 5/5 | 4/5 | 4/5 |
+| Gemini Ultra | 4/5 | 4/5 | 4/5 | 4/5 |
+| Mistral Large | 4/5 | 4/5 | 4/5 | 3/5 |
+| DeepSeek | 4/5 | 3/5 | 3/5 | 3/5 |
+| Cohere | 3/5 | 4/5 | 3/5 | 3/5 |
+| NeMo-2 | 4/5 | 4/5 | 4/5 | 4/5 |
+
+### Reasoning & Analysis
+
+| Model | Logic | Math | Science | Analysis |
+|-------|-------|------|---------|----------|
+| GPT-4 | 5/5 | 5/5 | 5/5 | 5/5 |
+| Claude 3 | 5/5 | 4/5 | 5/5 | 5/5 |
+| Gemini Ultra | 4/5 | 5/5 | 5/5 | 4/5 |
+| Mistral Large | 4/5 | 4/5 | 4/5 | 4/5 |
+| DeepSeek | 4/5 | 3/5 | 4/5 | 4/5 |
+| Yi | 3/5 | 3/5 | 3/5 | 3/5 |
+| NeMo-2 | 4/5 | 5/5 | 4/5 | 4/5 |
+
+## Real-World Performance
+
+### Enterprise Use Cases
+
+| Model | Reliability | Consistency | Support | Integration |
+|-------|------------|-------------|---------|-------------|
+| GPT-4 | 5/5 | 5/5 | 5/5 | 5/5 |
+| Claude 3 | 5/5 | 5/5 | 4/5 | 4/5 |
+| Gemini Ultra | 4/5 | 4/5 | 4/5 | 4/5 |
+| Mistral Large | 4/5 | 4/5 | 3/5 | 4/5 |
+| Cohere | 4/5 | 4/5 | 4/5 | 4/5 |
+| NeMo-2 | 4/5 | 4/5 | 5/5 | 4/5 |
+| Together AI | 4/5 | 4/5 | 4/5 | 5/5 |
+
+### Development Workflow
+
+| Model | IDE Integration | API Usability | Documentation | Community |
+|-------|----------------|---------------|---------------|-----------|
+| GPT-4 | 5/5 | 5/5 | 5/5 | 5/5 |
+| Claude 3 | 4/5 | 4/5 | 4/5 | 4/5 |
+| Gemini Ultra | 4/5 | 4/5 | 4/5 | 3/5 |
+| Mistral Large | 3/5 | 4/5 | 4/5 | 4/5 |
+| Cohere | 4/5 | 5/5 | 5/5 | 4/5 |
+| Together AI | 4/5 | 5/5 | 4/5 | 4/5 |
+| Groq | 4/5 | 5/5 | 4/5 | 3/5 |
 
 ## Resource Requirements
 
